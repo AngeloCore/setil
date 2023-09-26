@@ -1,5 +1,7 @@
 ## Setil - single executable applications utility
 
+### ⚠️ SUPER EXPERIMENTAL
+
 > The goal of this package is to help you build node.js [SEA](https://nodejs.org/api/single-executable-applications.html) with ease.
 
 ### CLI Example
@@ -11,7 +13,7 @@ CLI usage is not implemented yet.
 ```mjs
 import { compile } from "setil";
 import { readFileSync } from "node:fs";
-import { resolve } from "nod:path";
+import { resolve } from "node:path";
 
 const input = readFileSync("src/index.js", "utf-8");
 const output = `./app.exe`;
@@ -25,7 +27,7 @@ await setil.compile(input, output);
 
 `compile(input: string, rawOutput: string, rawOptions?: Partial<Options>): Promise<Result>`
 
-- input - The input code, as SEA doesn't accept imports after compilation, you can use rollup to bundle your project into a single file. You can also check [rollup-plugin-jsative](https://github.com/AngeloCore/rollup-plugin-jsative) if you use native modules.
+- input - Since SEA doesn't allow imports after compilation, you can use rollup to bundle your project into a single file. You can also check [rollup-plugin-jsative](https://github.com/AngeloCore/rollup-plugin-jsative) if you are using native modules.
 - output (rawOutput) - The output path of your application, e.g. `./program.exe`.
 - options (rawOptions) - Any additional customization, checkout [Options](#options)
 
